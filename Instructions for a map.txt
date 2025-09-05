@@ -1,0 +1,191 @@
+### **Instructions: Interactive Project Mockup with Streamlit (Complete)**
+
+**Objective:** Build a simple, interactive web application that demonstrates the three key project deliverables, including a fully-featured interactive map.
+
+**The Tech Stack:**
+
+  * **Language/Framework:** Python & Streamlit
+  * **Data Handling:** Pandas
+  * **Mapping:** Folium
+  * **Hosting:** Streamlit Community Cloud (via GitHub)
+
+-----
+
+### **Step 1: Setup and Data Preparation**
+
+First, set up your project folder, environment, and data files.
+
+**1. Create Your Project Folder:**
+Create a new folder for this project. Inside, create a sub-folder named `images`.
+
+**2. Install Libraries:**
+Open your terminal and install the necessary Python libraries:
+
+```bash
+pip install streamlit pandas folium streamlit-folium altair
+```
+
+**3. Prepare Image Files:**
+For the map's interactive pop-ups to show photos, you need image files.
+
+  * Create a **public GitHub repository** for this project.
+  * Upload a few sample photos of trail issues (e.g., `erosion.jpg`, `treefall.jpg`) into the `images` folder within the GitHub repository.
+  * For each image, click on it in GitHub, then click the "**Download**" button. Copy the URL from your browser's address bar. This is the direct link to the image that we will use.
+
+**4. Create the Data File:**
+Create a file in your project folder named `mock_trail_data.csv`. Copy and paste the following data into it, replacing the placeholder URLs with the actual URLs you just copied from GitHub.
+
+```csv
+EntryID,Issue_Category,Severity_Score,Latitude,Longitude,Slope,Elevation,Aspect,Past_7_Day_Rainfall,Image_URL
+1023,Nominal,0,-43.532,172.636,4,812,North,22,""
+1024,Erosion,4,-43.551,172.614,18,950,South,45,"https://raw.githubusercontent.com/your-username/your-repo/main/images/erosion.jpg"
+1025,Hazard (Treefall),3,-43.570,172.592,12,985,West,45,"https://raw.githubusercontent.com/your-username/your-repo/main/images/treefall.jpg"
+1026,Infrastructure Damage,2,-43.585,172.571,8,1015,South,31,""
+1027,Drainage Failure,5,-43.601,172.550,15,1050,East,60,""
+```
+
+-----
+
+### **Step 2: Build the Streamlit Application**
+
+Create a Python file named `app.py` in your project folder. Paste the following complete code into it. This code includes all the features: the dataset viewer, the complete interactive map, and the key findings section.
+
+```python
+# app.py
+import streamlit as st
+import pandas as pd
+import folium
+from streamlit_folium import st_folium
+import altair as alt
+
+# --- App Configuration ---
+st.set_page_config(
+    page_title="Trail Condition Analytics Mockup",
+    page_icon="🗺️",
+    layout="wide"
+)
+
+# --- Load Data ---
+@st.cache_data
+def load_data(path):
+    df = pd.read_csv(path).fillna('') # Handle empty image URLs
+    return df
+
+df = load_data("mock_trail_data.csv")
+
+# --- App Header ---
+st.title("🏔️ Predictive Trail Condition Analytics: A Mockup")
+st.markdown("This interactive application demonstrates the key deliverables for the Trail AI Intelligence Project. The data shown here is a synthesized sample.")
+
+# --- Deliverable 1: The Dataset ---
+st.header("Deliverable 1: The Raw & Enriched Dataset")
+if st.checkbox("Show the enriched dataset used in this demo"):
+    st.dataframe(df)
+    st.markdown("_This table represents the data after being automatically enriched with topographical and weather information._")
+
+# --- Deliverable 2: The Interactive 'Risk Model' Map ---
+st.header("Deliverable 2: Interactive 'Risk Model' Map")
+
+def get_color(severity):
+    if severity >= 4: return 'red'
+    elif severity == 3: return 'orange'
+    else: return 'green'
+
+m = folium.Map(location=[df['Latitude'].mean(), df['Longitude'].mean()], zoom_start=12, tiles="Stamen Terrain")
+
+# Add the trail line with a "Predicted Risk" overlay
+trail_coordinates = list(zip(df['Latitude'], df['Longitude']))
+folium.PolyLine(
+    locations=trail_coordinates,
+    color='red',
+    weight=5,
+    opacity=0.8,
+    tooltip="Predicted High-Risk Section"
+).add_to(m)
+
+# Add a marker for each data point with a photo in the popup
+for idx, row in df.iterrows():
+    image_html = f'<img src="{row["Image_URL"]}" width="200">' if row["Image_URL"] else ''
+    popup_text = f"""
+    <h4>Issue: {row['Issue_Category']}</h4>
+    <b>Severity Score:</b> {row['Severity_Score']}/5<br>
+    <b>Slope:</b> {row['Slope']}° | <b>Rain (7d):</b> {row['Past_7_Day_Rainfall']}mm<br>
+    {image_html}
+    """
+    folium.Marker(
+        location=[row['Latitude'], row['Longitude']],
+        popup=folium.Popup(popup_text, max_width=250),
+        icon=folium.Icon(color=get_color(row['Severity_Score']), icon='info-sign')
+    ).add_to(m)
+
+st_folium(m, width=1200, height=500)
+
+# Add the map legend
+st.markdown("""
+### Map Legend
+* **Trail Line Color**: Represents the AI-predicted risk of degradation.
+    * <span style="color:red; font-weight:bold;">Red</span>: High-Risk Section
+* **Markers**: Represent actual, documented issues.
+    * <span style="color:green; font-weight:bold;">● Green</span>: Nominal/Minor (Severity 0-2)
+    * <span style="color:orange; font-weight:bold;">● Orange</span>: Requires Monitoring (Severity 3)
+    * <span style="color:red; font-weight:bold;">● Red</span>: Hazardous/Impassable (Severity 4-5)
+""")
+
+# --- Deliverable 3: Key Findings & Report Excerpt ---
+st.header("Deliverable 3: Key Findings & Recommendations")
+st.markdown("The final deliverable includes a comprehensive report with actionable insights. Below is a sample finding.")
+
+col1, col2 = st.columns([1,1])
+
+with col1:
+    st.subheader("Sample Finding 3.2:")
+    st.markdown("""
+    #### South-facing slopes are disproportionately at risk for severe erosion.
+    [cite_start]The model's analysis reveals that **slope** and **aspect** are the two biggest predictors of severe erosion events (Severity 4-5)[cite: 724]. [cite_start]Over 70% of severe erosion occurs on south-facing slopes with an incline greater than 15 degrees, which are more susceptible to soil saturation[cite: 724].
+    
+    **Recommendation:** Proactively schedule assessments of all south-facing trail sections with a slope >15° immediately following any MetService rainfall warning.
+    """)
+
+with col2:
+    st.subheader("Sample Chart: Erosion Events by Aspect")
+    chart_data = pd.DataFrame({
+        'Aspect': ['North-facing', 'South-facing', 'East-facing', 'West-facing'],
+        'Severe Erosion Events': [12, 41, 20, 25]
+    })
+    c = alt.Chart(chart_data).mark_bar().encode(
+        x=alt.X('Aspect', sort=None),
+        y='Severe Erosion Events',
+        tooltip=['Aspect', 'Severe Erosion Events']
+    ).interactive()
+    st.altair_chart(c, use_container_width=True)
+```
+
+-----
+
+### **Step 3: Run and Deploy for Free**
+
+Now you can run the app locally and deploy it so anyone with a link can interact with it.
+
+**1. Run Locally:**
+Go to your terminal, navigate to your project folder, and run:
+
+```bash
+streamlit run app.py
+```
+
+**2. Deploy to the Cloud:**
+
+  * Create a file named `requirements.txt` in your project folder and add the following lines:
+    ```
+    streamlit
+    pandas
+    folium
+    streamlit-folium
+    altair
+    ```
+  * Go to your public GitHub repository and upload these three files: `app.py`, `mock_trail_data.csv`, and `requirements.txt`.
+  * Go to **share.streamlit.io** and sign in with your GitHub account.
+  * Click "New app", select your new GitHub repository, and ensure the "Main file path" is set to `app.py`.
+  * Click "Deploy\!".
+
+In a few minutes, your application will be live with a public URL you can share with any sponsor.

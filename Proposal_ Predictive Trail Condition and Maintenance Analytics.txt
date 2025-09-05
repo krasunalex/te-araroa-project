@@ -1,0 +1,68 @@
+﻿Proposal: Predictive Trail Condition and Maintenance Analytics
+Project Title: The Trail AI Intelligence Project: Te Araroa
+Prepared by: Oleksandr (Alex) Krasun
+________________
+
+
+1.0 Executive Summary
+This document outlines a proposal for a 6-month research and development project to create a predictive analytics model for trail maintenance on New Zealand's 3,000km Te Araroa trail. The project will leverage a unique, high-resolution dataset collected during a 4-month thru-hike, using machine learning to forecast trail degradation and help optimize maintenance resources. This initiative offers a direct, cost-saving benefit to trail management organizations and a powerful case study for technology partners. The total operational budget for this project is $31,000 CAD.
+________________
+
+
+2.0 The Opportunity: A Data-Driven Approach to Trail Management
+Trail management organizations often rely on reactive, anecdotal reports to address maintenance issues, which can lead to an inefficient allocation of limited resources.
+This project presents an opportunity to shift from a reactive to a proactive maintenance model. By systematically collecting a standardized, ground-truthed dataset of trail conditions and enriching it with topographical and environmental data, we can build an AI model that identifies patterns and predicts future maintenance "hotspots" before they become critical failures. This provides a data-driven tool to enhance safety, improve the hiker experience, and maximize the impact of maintenance efforts.
+________________
+
+
+3.0 Project Methodology
+The project is structured in two distinct phases: field data collection and post-hike data analysis.
+3.1 Phase 1: Field Data Collection (4 Months: Dec 2025 - Apr 2026)
+This phase is dedicated to the meticulous and consistent gathering of high-quality trail condition data.
+* Collection Protocol: Data will be collected using an "Event-Driven Logging" method, where any observed trail issue is immediately documented. To prevent model bias, I will also log scheduled "Nominal" data points every two hours to capture what "good" trail looks like.
+* Data Schema: Each data entry will be highly structured for analytical consistency, including:
+   * A unique EntryID and precise Timestamp.
+   * GPS Coordinates (Latitude & Longitude).
+   * A predefined
+Issue_Category (e.g., Erosion, Drainage Failure, Overgrowth, Hazard, Infrastructure Damage).
+   * A numeric
+Severity_Score on a 1-5 scale, from minor issue to trail impassable.
+   * Associated photo filenames and a brief, objective text description.
+3.2 Phase 2: AI Model Development & Analysis (2 Months: Apr - June 2026) The post-hike phase focuses on data processing, analysis, and model development.
+   * Data Enrichment & Feature Engineering: This critical step enhances the dataset's predictive power. The raw data will be enriched with external data sources linked by GPS coordinates, including:
+   * Topographical Features: Querying a Digital Elevation Model (DEM) to determine the slope, elevation, and aspect for each data point.
+   * Environmental Features: Using weather APIs to pull historical data like recent rainfall totals and freeze-thaw cycles for each point.
+   * Model Development: The enriched dataset will be used to train a classification model (such as an XGBoost or LightGBM model) to predict the likelihood of a high severity score based on the trail's features. The model will also identify which factors are the biggest predictors of trail damage.
+________________
+
+
+4.0 Key Deliverables
+The project's key deliverables include:
+   1. The Raw & Enriched Datasets: The complete, cleaned, and validated dataset collected, which is in itself an invaluable asset for trail management and research.
+   2. An Interactive "Risk Model" Map: A map of the entire Te Araroa with all data points visualized, color-coded by severity. This map will highlight areas that the model predicts are at high risk of future degradation under certain conditions.
+   3. A Final Comprehensive Report: A detailed report outlining the project methodology, key findings, and strategic recommendations for the sponsor.
+________________
+
+
+5.0 About the Researcher
+My career has been focused on turning complex data into practical solutions across more than 15 industries. As a Founding AI Engineer and former Data Scientist at Onex, I have extensive experience building AI models and analytical tools using Python, TensorFlow, and GIS software (ESRI ArcGIS). This technical expertise is paired with a deep passion for the outdoors and extensive backcountry hiking experience in demanding environments like the Canadian Rockies and Austrian Alps, providing the unique combination of skills required to successfully execute this project.
+________________
+
+
+6.0 Project Budget & Partnership Opportunities
+The total operational budget for this 6-month R&D project is $31,000 CAD. This figure is designed to cover all operational costs and professional services, not to fund a vacation.
+   * On-Trail Stipend (4 months): $10,000 CAD
+   * Covers living and logistical costs during the field data collection phase.
+   * Post-Hike Professional Fee (2 months): $15,000 CAD
+   * Compensation for AI/ML development, data analysis, and final report creation.
+   * Project Hard Costs & Overheads: $6,000 CAD
+   * Covers direct expenses like flights, insurance, specialized equipment, and software services.
+There are several partnership tiers and are open to discussing a bespoke arrangement that aligns with your strategic goals:
+   * Title Sponsor ($31,000 CAD): Funds the entire project for naming rights and exclusive top billing in all media.
+   * Technology Partner ($15,000 CAD): Directly funds the professional fee for the AI development and data analysis phase.
+   * Field Logistics Partner ($10,000 CAD): Covers the on-trail stipend, associating your brand with the on-the-ground hiking experience.
+________________
+
+
+7.0 Next Steps
+I am confident that the "Predictive Trail Condition and Maintenance Analytics" project can provide significant value to your organization. I would be grateful for the opportunity to schedule a brief meeting to discuss this proposal in more detail and explore how a partnership can support your strategic objectives.
