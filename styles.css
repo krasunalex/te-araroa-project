@@ -555,6 +555,17 @@ body {
     .section-header h2 {
         font-size: 2rem;
     }
+    
+    .track-cta .download-button {
+        display: block;
+        margin: 0.5rem auto;
+        width: fit-content;
+    }
+    
+    .track-cta .download-button[style*="margin-left"] {
+        margin-left: auto !important;
+        margin-top: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
