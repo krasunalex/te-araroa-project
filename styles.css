@@ -425,14 +425,14 @@ body {
 }
 
 .tier-header h4 {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #2d3748;
     margin-bottom: 0.5rem;
 }
 
 .tier-price {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #3182ce;
 }
