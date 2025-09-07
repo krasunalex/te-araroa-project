@@ -9,7 +9,8 @@ import altair as alt
 st.set_page_config(
     page_title="Trail Condition Analytics Mockup",
     page_icon="🗺️",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
 # --- Load Data ---
@@ -22,6 +23,113 @@ def load_data(path):
     return df
 
 df = load_data("mock_trail_data_real.csv")
+
+# --- Navigation Bar ---
+st.markdown("""
+<style>
+/* Hide Streamlit header */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+.stApp > header {display: none;}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo h2 {
+    color: #2d3748;
+    font-weight: 600;
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #3182ce;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #4a5568;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+</style>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <h2>Trail AI Project</h2>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="https://krasunalex.github.io/te-araroa-project/#vision" target="_blank">Vision</a></li>
+            <li><a href="https://krasunalex.github.io/te-araroa-project/#about" target="_blank">About</a></li>
+            <li><a href="https://krasunalex.github.io/te-araroa-project/#partnerships" target="_blank">Partnerships</a></li>
+            <li><a href="https://krasunalex.github.io/te-araroa-project/#budget" target="_blank">Budget</a></li>
+            <li><a href="https://krasunalex.github.io/te-araroa-project/#contact" target="_blank">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+""", unsafe_allow_html=True)
+
+# Add top margin to account for fixed navbar
+st.markdown('<div style="margin-top: 80px;"></div>', unsafe_allow_html=True)
 
 # --- App Header ---
 st.title("🏔️ Predictive Trail Condition Analytics: A Mockup")
