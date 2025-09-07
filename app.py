@@ -110,7 +110,9 @@ header {visibility: hidden;}
 <nav class="navbar">
     <div class="nav-container">
         <div class="nav-logo">
-            <h2>Trail AI Project</h2>
+            <a href="https://krasunalex.github.io/te-araroa-project/" target="_blank" style="text-decoration: none; color: inherit;">
+                <h2>Trail AI Project</h2>
+            </a>
         </div>
         <ul class="nav-menu">
             <li><a href="https://krasunalex.github.io/te-araroa-project/#vision" target="_blank">Vision</a></li>
