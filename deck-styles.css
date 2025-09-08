@@ -1,0 +1,185 @@
+/* R&D Partnership Deck Specific Styles */
+
+body.deck-page {
+    overflow: hidden; /* Prevent scrolling on the body */
+}
+
+.presentation-container {
+    position: fixed;
+    top: 80px; /* Height of the navbar */
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 80px); /* Full height minus navbar */
+    overflow: hidden;
+    z-index: 1;
+    background: #f7fafc; /* Light background for the slide area */
+}
+
+.slides-container {
+    display: flex;
+    width: 900vw; /* 9 slides * 100vw */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.slide-content {
+    max-width: 1100px; /* Max width for content within a slide */
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto; /* Allow scrolling for tall content */
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Slide Specifics */
+.title-slide .slide-content {
+    background: transparent;
+    box-shadow: none;
+    text-align: center;
+    color: white;
+}
+
+.title-slide {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+.title-slide .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.title-slide .title-overlay {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.title-slide h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: white;
+    margin: 0;
+}
+
+.title-slide h2 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: #e2e8f0;
+    font-weight: 400;
+    margin: 1rem 0 0 0;
+}
+
+
+/* General Slide Content Styling */
+.slide-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3182ce;
+    margin-bottom: 2rem;
+}
+
+.slide-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.slide-content th, .slide-content td {
+    border: 1px solid #e2e8f0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.slide-content th {
+    background-color: #f7fafc;
+}
+
+/* Navigation & Slide Indicator */
+.navigation {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.nav-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e2e8f0;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.nav-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.slide-indicator {
+    position: fixed;
+    top: calc(80px + 1rem); /* Position below navbar */
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Cleanup inline styles from HTML */
+.slide-content div[style*="background"] {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.slide-content p[style*="background"] {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.slide-content table[style*="width"] {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 1.5rem 0 !important;
+    table-layout: auto !important;
+}

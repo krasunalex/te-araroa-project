@@ -4,371 +4,242 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&D Partnership Deck: In-Situ Gear Performance Analytics</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .presentation-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .slide {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            padding: 60px;
-            min-height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #3182ce, #38a169, #d69e2e);
-        }
-
-        .slide-number {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            background: #f7fafc;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #4a5568;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
-
-        h3 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #3182ce;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
-
-        h4 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #4a5568;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #4a5568;
-            margin-bottom: 1rem;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        li {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #4a5568;
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        li::before {
-            content: '•';
-            color: #3182ce;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .highlight {
-            background: linear-gradient(120deg, #fef5e7 0%, #fef5e7 100%);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .budget-item {
-            background: #f7fafc;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 4px solid #3182ce;
-        }
-
-        .budget-amount {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #3182ce;
-        }
-
-        .contact-info {
-            background: #f7fafc;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-        }
-
-        .contact-info h4 {
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 0.5rem;
-        }
-
-        .visual-placeholder {
-            background: #e2e8f0;
-            border: 2px dashed #cbd5e0;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            color: #718096;
-            font-style: italic;
-            margin: 1rem 0;
-        }
-
-        .title-slide {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .title-slide h1 {
-            color: white;
-            font-size: 4rem;
-        }
-
-        .title-slide h2 {
-            color: #e2e8f0;
-            font-size: 2rem;
-            font-weight: 400;
-        }
-
-        .slide-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-            margin: 2rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .slide {
-                padding: 30px;
-                min-height: 400px;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            h3 {
-                font-size: 1.5rem;
-            }
-            
-            p, li {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="deck-styles.css">
 </head>
-<body>
+<body class="deck-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h2>Trail AI Project</h2>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#vision">Vision</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#partnerships">Partnerships</a></li>
+                <li><a href="index.html#budget">Budget</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
     <div class="presentation-container">
+        <div class="slide-indicator" id="slideIndicator">1/10</div>
         
-        <!-- Slide 1: Title Slide -->
-        <div class="slide title-slide">
-            <div class="slide-number">1/10</div>
-            <h1>The Trail AI Intelligence Project</h1>
-            <h2>R&D Partnership: In-Situ Gear Performance Analytics</h2>
-            <div class="visual-placeholder">
-                [Background Image: A stunning, high-quality photo of a rugged, alpine section of the Te Araroa trail.]
+        <div class="slides-container" id="slidesContainer">
+            <!-- Slide 1: Title Slide -->
+            <div class="slide title-slide">
+                <img src="main-image.png" alt="Te Araroa Trail" class="background-image">
+                <div class="slide-content">
+                    <div class="title-overlay">
+                        <h1>The Trail AI Intelligence Project</h1>
+                        <h2>R&D Partnership: In-Situ Gear Performance Analytics</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: The Opportunity -->
+            <div class="slide">
+                <div class="slide-content">
+                <h3 style="text-align: left;"><strong>Beyond the Lab: The Ultimate Durability Test</strong></h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>🔬 <strong>The Lab</strong></th>
+                            <th>🏔️ <strong>The Trail (This Project)</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🧪 Controlled Conditions</td>
+                            <td>🌦️ Unpredictable, Real-World Conditions</td>
+                        </tr>
+                        <tr>
+                            <td>⏱️ Short-Term Stress</td>
+                            <td>🗓️ <strong>5 Months, 3,000 km</strong> of Cumulative Stress</td>
+                        </tr>
+                        <tr>
+                            <td>🤖 Simulated Wear</td>
+                            <td>📈 True Durability & Failure Point Data</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <br>
+                
+                <p><strong>This project provides the real-world data that labs can't.</strong></p>
             </div>
         </div>
 
-        <!-- Slide 2: The Opportunity -->
-        <div class="slide">
-            <div class="slide-number">2/10</div>
-            <h3>Validating Durability & Sustainability with Real-World Data</h3>
-            <p>Lab tests and short-term feedback are valuable, but they cannot fully replicate the cumulative stress of a long-distance expedition. This creates a gap between controlled testing and how products truly perform and endure over their lifetime.</p>
-            <p>This project closes that gap. A <span class="highlight">five-month, 3,000 km thru-hike</span> provides an unparalleled R&D environment to collect objective, long-term data on material degradation, validating the core principles of durability and circularity your brand is built on.</p>
-            <div class="visual-placeholder">
-                [Visual: A split image showing a sterile lab environment on the left and a muddy, rain-soaked hiker on the right.]
+            <!-- Slide 3: The Mission -->
+            <div class="slide">
+                <div class="slide-content">
+                <h3 style="text-align: left;"><strong>The Mission: A 3,000 km R&D Deployment</strong></h3>
+                <div>
+                    <div style="margin-bottom: 0.8rem;">📍 <strong>Location:</strong> Te Araroa Trail, New Zealand</div>
+                    <div style="margin-bottom: 0.8rem;">⏳ <strong>Duration:</strong> 5 Months</div>
+                    <div style="margin-bottom: 0.8rem;">📏 <strong>Distance:</strong> 3,000 km</div>
+                    <div style="margin-bottom: 0.8rem;">🏞️ <strong>Conditions:</strong> Subtropical Forests to Alpine Passes</div>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 3: The Project -->
-        <div class="slide">
-            <div class="slide-number">3/10</div>
-            <h3>A 5-Month Field Test on the Te Araroa</h3>
-            <p>This project reframes a thru-hike as a structured, data-collection deployment on New Zealand's Te Araroa trail.</p>
-            <p>The Te Araroa is the ultimate testing ground, spanning multiple climate zones—from subtropical forests and rugged coastlines to exposed alpine passes.</p>
-            <p>As a field data scientist and AI engineer, I will systematically collect and analyze performance data on a full suite of your gear across this entire journey, providing insights relevant to your global customer base.</p>
-            <div class="visual-placeholder">
-                [Visual: A map of New Zealand with the Te Araroa trail highlighted, with icons showing different weather conditions (sun, rain, snow) along the route.]
+            <!-- Slide 4: Method -->
+            <div class="slide">
+                <div class="slide-content">
+                <h3 style="text-align: left;"><strong>The Method: From Opinion ➡️ To Data</strong></h3>
+                <div>
+                    <div style="margin-bottom: 0.8rem;">📸 <strong>Systematic Capture:</strong> Daily photo logs of key stress points.</div>
+                    <div style="margin-bottom: 0.8rem;">📈 <strong>Quantitative Metrics:</strong> Objective data on DWR, insulation, and fabric durability.</div>
+                    <div style="margin-bottom: 0.8rem;">♻️ <strong>Durability Assessment:</strong> Pinpointing exact wear patterns to inform design for longevity.</div>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 4: The Methodology -->
-        <div class="slide">
-            <div class="slide-number">4/10</div>
-            <h3>From Subjective Feedback to Quantitative Analysis</h3>
-            <p>This project moves beyond opinion to provide objective, actionable data.</p>
-            <ul>
-                <li><strong>Systematic Data Capture:</strong> Standardized daily logs and high-resolution photography will be used to track wear patterns at key stress points (e.g., shoulder straps, seams, high-abrasion zones).</li>
-                <li><strong>Quantitative Metrics:</strong> The analysis will focus on objective performance indicators, including DWR degradation, insulation loft loss, and fabric durability.</li>
-                <li><strong>Circularity & Durability Assessment:</strong> The methodology is designed to identify specific wear patterns and failure points, providing direct insights to inform design for longevity and repairability.</li>
-            </ul>
-            <div class="visual-placeholder">
-                [Visual: A diagram of a backpack or jacket with data icons pointing to different parts, labeled with metrics like "Abrasion Analysis" and "Seam Integrity."]
+            <!-- Slide 5: Your R&D Benefits -->
+            <div class="slide">
+                <div class="slide-content">
+                <h3 style="text-align: left;"><strong>Your R&D Benefits</strong></h3>
+                <div>
+                    <div style="margin-bottom: 0.8rem;">💡 <strong>Inform Product Design</strong><br>
+                    Hard data to validate new materials and design choices.</div>
+                    <div style="margin-bottom: 0.8rem;">♻️ <strong>Strengthen Sustainability Goals</strong><br>
+                    Data to engineer longer-lasting products, supporting circularity.</div>
+                    <div style="margin-bottom: 0.8rem;">🔬 <strong>Support Science-Based Targets</strong><br>
+                    A unique dataset for your Life Cycle Assessment (LCA) models.</div>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 5: The Value Proposition -->
-        <div class="slide">
-            <div class="slide-number">5/10</div>
-            <h3>Actionable Insights for Your R&D and Sustainability Teams</h3>
-            <p>This partnership is designed to deliver a direct return on investment to your product teams.</p>
-            <ul>
-                <li><strong>Data-Driven R&D:</strong> Provide your R&D team with hard data to validate design choices, test new materials, and identify specific opportunities for innovation.</li>
-                <li><strong>Validate Durability & Circularity Goals:</strong> Pinpoint exact failure modes to engineer more durable products, reinforcing your brand's lifetime warranties and circularity goals by designing out waste.</li>
-                <li><strong>Provide Data for LCA & Science-Based Targets:</strong> Collect a unique, long-term dataset on material degradation that can feed directly into your Life Cycle Assessment (LCA) models and support your science-based targets.</li>
-            </ul>
-            <div class="visual-placeholder">
-                [Visual: Simple, clean icons next to each bullet point: a lightbulb, a recycling/circularity symbol, and a graph/chart.]
+            <!-- Slide 6: What Your Team Receives -->
+            <div class="slide">
+                <div class="slide-content">
+                <h3 style="text-align: left;"><strong>What Your Team Receives</strong></h3>
+                <div>
+                    <div style="margin-bottom: 0.8rem;">📊 <strong>The Complete Dataset</strong><br>
+                    All raw metrics, logs, and observations.</div>
+                    <div style="margin-bottom: 0.8rem;">📄 <strong>Final Analytical Report</strong><br>
+                    A comprehensive report with data visualizations and actionable recommendations.</div>
+                    <div style="margin-bottom: 0.8rem;">🖼️ <strong>High-Quality Visual Assets</strong><br>
+                    A portfolio of professional photos & videos of your gear in action.</div>
+                    <div style="margin-bottom: 0.8rem;">🔒 <strong>Confidentiality & Exclusivity</strong><br>
+                    All data and findings are exclusive to your brand.</div>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 6: The Deliverables -->
-        <div class="slide">
-            <div class="slide-number">6/10</div>
-            <h3>What Your Team Receives</h3>
-            <ol>
-                <li><strong>The Complete Performance Dataset:</strong> The full, structured raw dataset containing all metrics, logs, and observations collected during the 5-month expedition.</li>
-                <li><strong>Final Analytical Report:</strong> A comprehensive report detailing the methodology, data visualizations, an analysis of wear patterns and failure points, and actionable recommendations for your product teams.</li>
-                <li><strong>High-Quality Visual Assets:</strong> A professional portfolio of high-resolution photos and videos showing your gear performing in the diverse and challenging landscapes of New Zealand.</li>
-                <li><strong>Confidentiality & Exclusivity:</strong> All data and findings from the analysis will be confidential and the exclusive property of your brand.</li>
-            </ol>
-            <div class="visual-placeholder">
-                [Visual: Mockups of the deliverables: a screenshot of the dataset spreadsheet, the cover of the Final Report, and a grid of professional-looking photos.]
+            <!-- Slide 7: The Researcher -->
+            <div class="slide">
+                <div class="slide-content">
+                <h3 style="text-align: left;"><strong>The Researcher: AI Engineer + Thru-Hiker</strong></h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>🤖 <strong>AI & Data Expertise</strong></th>
+                            <th>🏔️ <strong>Backcountry Experience</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>• Founding AI Engineer</td>
+                            <td>• 5-Month Expedition Ready</td>
+                        </tr>
+                        <tr>
+                            <td>• Data Scientist (Onex)</td>
+                            <td>• Canadian Rockies, Alps</td>
+                        </tr>
+                        <tr>
+                            <td>• Python, TensorFlow, GIS</td>
+                            <td>• Self-Sufficient & Resilient</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <!-- Slide 7: About the Researcher -->
-        <div class="slide">
-            <div class="slide-number">7/10</div>
-            <h3>The AI Engineer in the Field</h3>
-            <p>I bring a unique combination of technical data science skills and proven backcountry resilience.</p>
-            <ul>
-                <li><strong>AI & Data Expertise:</strong> As a Founding AI Engineer and former Data Scientist, I have extensive experience building analytical tools and extracting insights from complex datasets using Python, TensorFlow, and other machine learning frameworks.</li>
-                <li><strong>Backcountry Experience:</strong> I am an experienced thru-hiker with the physical and mental fortitude to execute a self-sufficient, 5-month field deployment, having completed multi-day treks in demanding environments like the Canadian Rockies and the Austrian Alps.</li>
-            </ul>
-            <div class="visual-placeholder">
-                [Visual: A professional headshot of Alex next to a photo of him hiking in a rugged, mountainous environment.]
+            <!-- Slide 8: Project Investment & Partnership -->
+            <div class="slide">
+                <div class="slide-content">
+                <h3 style="text-align: left;"><strong>Project Investment & Partnership</strong></h3>
+                
+                <div>
+                    <div style="margin-bottom: 1rem;"><strong>Total Budget: $33,500 CAD</strong> (7-Month Project)</div>
+                    
+                    <div style="margin-bottom: 0.8rem;"><strong>Field Stipend (5 mo):</strong> $12,500</div>
+                    <div style="margin-bottom: 0.8rem;"><strong>Pro-Fee (2 mo analysis):</strong> $15,000</div>
+                    <div style="margin-bottom: 1rem;"><strong>Hard Costs:</strong> $6,000</div>
+                    
+                    <div style="margin-bottom: 0.8rem;"><strong>Primary Ask: Title Sponsor - $38,000</strong></div>
+                    <div><em>(Also open to Gear & Value-in-Kind partnerships)</em></div>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 8: Partnership & Budget -->
-        <div class="slide">
-            <div class="slide-number">8/10</div>
-            <h3>Investment for a 7-Month R&D Project</h3>
-            <p>This is a proposal for a professional 7-month technology project (5 months field, 2 months analysis) with a total operational budget of <span class="highlight">$33,500 CAD</span>.</p>
-            
-            <div class="budget-item">
-                <strong>On-Trail Stipend (5 months):</strong> <span class="budget-amount">$12,500</span>
-            </div>
-            <div class="budget-item">
-                <strong>Professional Fee (2 months Post-Hike Analysis):</strong> <span class="budget-amount">$15,000</span>
-            </div>
-            <div class="budget-item">
-                <strong>Project Hard Costs (Flights, Insurance, Tech):</strong> <span class="budget-amount">$6,000</span>
-            </div>
-
-            <p>We offer several partnership tiers and are open to discussing bespoke arrangements:</p>
-            <ul>
-                <li><strong>Title Sponsor:</strong> $38,000</li>
-                <li><strong>Gear & Services Sponsor (Value-in-Kind + Cash):</strong> A combination of essential equipment and a cash contribution to cover hard costs.</li>
-            </ul>
-            
-            <div class="visual-placeholder">
-                [Visual: A clean, simple table or infographic showing the budget breakdown and partnership tiers.]
+            <!-- Slide 10: Let's Talk -->
+            <div class="slide">
+                <div class="slide-content">
+                <h3 style="text-align: left;"><strong>Let's Talk.</strong></h3>
+                
+                <div>
+                    <div style="margin-bottom: 0.8rem;"><strong>Alex Krasun</strong></div>
+                    <div style="margin-bottom: 0.8rem;">alexkrasun@accelerateai.agency</div>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 9: Why [Sponsor Name]? -->
-        <div class="slide">
-            <div class="slide-number">9/10</div>
-            <h3>A Partnership Rooted in Shared Values</h3>
-            <p>We are seeking a partnership with <strong>[Sponsor Name]</strong> specifically because of your demonstrated commitment to <strong>[Choose the most relevant value from the list below, e.g., product durability, science-based design, circularity, natural fiber innovation]</strong>.</p>
-            <p>Your <strong>[mention a specific product, initiative, or report, e.g., "All Mighty Guarantee," "commitment to a circular economy," "Natural Fibre Innovation story"]</strong> aligns perfectly with this project's goal of using hard data to engineer longer-lasting, more sustainable products.</p>
-            <p>This project offers an opportunity to scientifically validate and quantify the very principles your brand is built on.</p>
-            <div class="visual-placeholder">
-                [Visual: The sponsor's logo prominently displayed, perhaps next to an image of their flagship product or a screenshot from their sustainability report.]
-            </div>
         </div>
-
-        <!-- Slide 10: Next Steps -->
-        <div class="slide">
-            <div class="slide-number">10/10</div>
-            <h3>Let's Build the Future of Gear Together</h3>
-            <p>I would be grateful for the opportunity to discuss how this data-driven partnership can support your R&D and sustainability goals.</p>
-            
-            <div class="contact-info">
-                <h4>Oleksandr (Alex) Krasun</h4>
-                <p>AI Engineer & Field Researcher</p>
-                <p><strong>Email:</strong> alexkrasun@accelerateai.agency</p>
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/alex-krasun">linkedin.com/in/alex-krasun</a></p>
-                <p><strong>Interactive Demo:</strong> <a href="https://te-araroa-project-rb9stxx4z6sqyhydkpp3ss.streamlit.app/">Link to Streamlit App</a></p>
-            </div>
-            
-            <div class="visual-placeholder">
-                [Visual: A compelling photo of the Te Araroa trail stretching out into the distance.]
-            </div>
+        
+        <div class="navigation">
+            <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next →</button>
         </div>
-
     </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 9;
+        const slidesContainer = document.getElementById('slidesContainer');
+        const slideIndicator = document.getElementById('slideIndicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateSlide() {
+            const translateX = -currentSlide * 100;
+            slidesContainer.style.transform = `translateX(${translateX}vw)`;
+            slideIndicator.textContent = `${currentSlide + 1}/${totalSlides}`;
+            
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        updateSlide();
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&D Partnership Deck - PDF Version</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto;
+            padding: 1in;
+            page-break-after: always;
+            background: white;
+            position: relative;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        .title-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('main-image.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            filter: blur(2px);
+        }
+
+        .title-overlay {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .title-overlay h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .title-overlay h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #e2e8f0;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .slide-content {
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3182ce;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .slide-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .slide-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide-content ul li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide-content div {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1rem;
+        }
+
+        table th, table td {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        table th {
+            background: rgba(49, 130, 206, 0.1);
+            font-weight: 600;
+        }
+
+        .conclusion {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .budget-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .budget-section h4 {
+            font-size: 1.5rem;
+            color: #3182ce;
+            margin-bottom: 1rem;
+        }
+
+        .budget-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .budget-section li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #3182ce;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media print {
+            .page {
+                margin: 0;
+                padding: 0.75in;
+                box-shadow: none;
+            }
+            
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title Slide -->
+    <div class="page title-slide">
+        <div class="slide-number">1/10</div>
+        <div class="title-overlay">
+            <h1>The Trail AI Intelligence Project</h1>
+            <h2>R&D Partnership: In-Situ Gear Performance Analytics</h2>
+        </div>
+    </div>
+
+    <!-- Slide 2: Beyond the Lab -->
+    <div class="page">
+        <div class="slide-number">2/10</div>
+        <div class="slide-content">
+            <h3>Beyond the Lab: The Ultimate Durability Test</h3>
+            <table>
+                <tr>
+                    <th>🔬 The Lab</th>
+                    <th>🏔️ The Trail (This Project)</th>
+                </tr>
+                <tr>
+                    <td>🧪 Controlled Conditions</td>
+                    <td>🌦️ Unpredictable, Real-World Conditions</td>
+                </tr>
+                <tr>
+                    <td>⏱️ Short-Term Stress</td>
+                    <td>🗓️ 5 Months, 3,000 km of Cumulative Stress</td>
+                </tr>
+                <tr>
+                    <td>🤖 Simulated Wear</td>
+                    <td>📈 True Durability & Failure Point Data</td>
+                </tr>
+            </table>
+            <div class="conclusion">
+                This project provides the real-world data that labs can't.
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: The Mission -->
+    <div class="page">
+        <div class="slide-number">3/10</div>
+        <div class="slide-content">
+            <h3>The Mission: A 3,000 km R&D Deployment</h3>
+            <div>📍 Location: Te Araroa Trail, New Zealand</div>
+            <div>⏳ Duration: 5 Months</div>
+            <div>📏 Distance: 3,000 km</div>
+            <div>🏞️ Conditions: Subtropical Forests to Alpine Passes</div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Our Method -->
+    <div class="page">
+        <div class="slide-number">4/10</div>
+        <div class="slide-content">
+            <h3>Our Method: From Opinion ➡️ To Data</h3>
+            <div>📸 Systematic Capture: Daily photo logs of key stress points.</div>
+            <div>📈 Quantitative Metrics: Objective data on DWR, insulation, and fabric durability.</div>
+            <div>♻️ Durability Assessment: Pinpointing exact wear patterns to inform design for longevity.</div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Your R&D Benefits -->
+    <div class="page">
+        <div class="slide-number">5/10</div>
+        <div class="slide-content">
+            <h3>Your R&D Benefits</h3>
+            <div>💡 Inform Product Design<br>Hard data to validate new materials and design choices.</div>
+            <div>♻️ Strengthen Sustainability Goals<br>Data to engineer longer-lasting products, supporting circularity.</div>
+            <div>🔬 Support Science-Based Targets<br>A unique dataset for your Life Cycle Assessment (LCA) models.</div>
+        </div>
+    </div>
+
+    <!-- Slide 6: What Your Team Receives -->
+    <div class="page">
+        <div class="slide-number">6/10</div>
+        <div class="slide-content">
+            <h3>What Your Team Receives</h3>
+            <div>📊 The Complete Dataset<br>All raw metrics, logs, and observations.</div>
+            <div>📄 Final Analytical Report<br>A comprehensive report with data visualizations and actionable recommendations.</div>
+            <div>🖼️ High-Quality Visual Assets<br>A portfolio of professional photos & videos of your gear in action.</div>
+            <div>🔒 Confidentiality & Exclusivity<br>All data and findings are exclusive to your brand.</div>
+        </div>
+    </div>
+
+    <!-- Slide 7: The Researcher -->
+    <div class="page">
+        <div class="slide-number">7/10</div>
+        <div class="slide-content">
+            <h3>The Researcher: AI Engineer + Thru-Hiker</h3>
+            <table>
+                <tr>
+                    <th>🤖 AI & Data Expertise</th>
+                    <th>🏔️ Backcountry Experience</th>
+                </tr>
+                <tr>
+                    <td>• Founding AI Engineer<br>• Data Scientist (Onex)<br>• Python, TensorFlow, GIS</td>
+                    <td>• 5-Month Expedition Ready<br>• Canadian Rockies, Alps<br>• Self-Sufficient & Resilient</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Slide 8: Project Investment -->
+    <div class="page">
+        <div class="slide-number">8/10</div>
+        <div class="slide-content">
+            <h3>Project Investment & Partnership</h3>
+            <div class="budget-section">
+                <h4>Total Budget: $33,500 CAD (7-Month Project)</h4>
+                <ul>
+                    <li>Field Stipend (5 mo): $12,500</li>
+                    <li>Pro-Fee (2 mo analysis): $15,000</li>
+                    <li>Hard Costs: $6,000</li>
+                </ul>
+            </div>
+            <div class="conclusion">
+                Primary Ask: Title Sponsor - $38,000<br>
+                (Also open to Gear & Value-in-Kind partnerships)
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Why Sponsor -->
+    <div class="page">
+        <div class="slide-number">9/10</div>
+        <div class="slide-content">
+            <h3>Why [Sponsor Name]?</h3>
+            <div>Your Commitment To:<br>[e.g., Uncompromising Durability]</div>
+            <div>Our Project's Goal:<br>To Quantify It.</div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Contact -->
+    <div class="page">
+        <div class="slide-number">10/10</div>
+        <div class="slide-content">
+            <h3>Let's Talk.</h3>
+            <div class="contact-info">
+                <p>Alex Krasun</p>
+                <p>alexkrasun@accelerateai.agency</p>
+                <p>LinkedIn Profile</p>
+                <p>Link to Interactive Demo</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
