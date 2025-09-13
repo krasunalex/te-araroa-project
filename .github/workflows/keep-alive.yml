@@ -10,16 +10,24 @@ jobs:
   keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Streamlit App
+      - name: Wake up and interact with Streamlit App
         run: |
-          echo "Pinging Streamlit app to keep it awake..."
-          curl -f -s -o /dev/null "https://te-araroa-project-rb9stxx4z6sqyhydkpp3ss.streamlit.app/" || echo "App might be sleeping, that's normal"
+          echo "🌅 Waking up Streamlit app..."
+          # First request to wake up the app
+          curl -s -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+               -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+               "https://te-araroa-project-rb9stxx4z6sqyhydkpp3ss.streamlit.app/" > /dev/null || echo "Initial wake-up request sent"
           
-      - name: Wait and Ping Again
+      - name: Simulate user interaction
         run: |
-          echo "Waiting 10 seconds and pinging again..."
-          sleep 10
-          curl -f -s -o /dev/null "https://te-araroa-project-rb9stxx4z6sqyhydkpp3ss.streamlit.app/" || echo "Second ping completed"
+          echo "👤 Simulating user interaction..."
+          sleep 15  # Wait for app to fully wake up
+          # Second request with different headers to simulate real user
+          curl -s -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" \
+               -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+               -H "Accept-Language: en-US,en;q=0.5" \
+               -H "Cache-Control: no-cache" \
+               "https://te-araroa-project-rb9stxx4z6sqyhydkpp3ss.streamlit.app/" > /dev/null || echo "User interaction simulated"
           
       - name: Log Status
         run: |
