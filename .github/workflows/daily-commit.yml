@@ -1,0 +1,38 @@
+name: Daily Keep-Alive Commit
+
+on:
+  schedule:
+    # Run at 10:00 AM UTC every day (5:00 AM EST / 2:00 AM PST)
+    - cron: '0 10 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  keep-alive-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+      - name: Update keep-alive timestamp
+        run: |
+          echo "Last activity: $(date -u)" > .streamlit-keepalive
+          
+      - name: Commit and push if changed
+        run: |
+          git add .streamlit-keepalive
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: automated keep-alive commit $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git push
+            echo "✅ Keep-alive commit pushed successfully"
+          fi
